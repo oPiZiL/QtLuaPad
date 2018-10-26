@@ -138,7 +138,7 @@ void QsciStyle::setFont(const QFont &font)
         if (sci)
         {
             sci->SendScintilla(QsciScintillaBase::SCI_STYLESETFONT, style_nr,
-                    style_font.family().toAscii().data());
+                    style_font.family().toLatin1().data());
             sci->SendScintilla(QsciScintillaBase::SCI_STYLESETSIZE, style_nr,
                     style_font.pointSize());
             sci->SendScintilla(QsciScintillaBase::SCI_STYLESETBOLD, style_nr,

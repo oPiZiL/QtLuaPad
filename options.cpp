@@ -3,6 +3,8 @@
 #include "mainwindow.h"
 #include "definitions.h"
 #include <QtGui>
+#include <QStyleFactory>
+#include <QFileDialog>
 
 Options::Options(QWidget *parent) :
     QDialog(parent),

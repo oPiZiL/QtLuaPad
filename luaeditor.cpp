@@ -1,4 +1,6 @@
 #include "luaeditor.h"
+#include <QApplication>
+#include <QFileDialog>
 #include <QString>
 #include "Qsci/qsciapis.h"
 #include "definitions.h"

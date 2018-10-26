@@ -2,7 +2,8 @@
 #include <QApplication>
 #include <QSharedMemory>
 #include <QLocalServer>
-#include <QtGui>
+#include <QStyle>
+#include <QStyleFactory>
 #include "mainwindow.h"
 #include "definitions.h"
 

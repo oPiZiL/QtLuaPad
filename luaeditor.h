@@ -4,6 +4,7 @@
 #define QSCINTILLA_DLL
 #include <QtGui>
 #include <QCompleter>
+#include <QMessageBox>
 #include <Qsci/qsciscintilla.h>
 #include <Qsci/qscilexerlua.h>
 

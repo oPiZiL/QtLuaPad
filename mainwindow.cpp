@@ -5,6 +5,11 @@
 #include "finddialog.h"
 #include "questcreator.h"
 #include "about.h"
+#include <QLabel>
+#include <QMdiArea>
+#include <QMdiSubWindow>
+#include <QInputDialog>
+#include <QInputDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -401,7 +406,7 @@ void MainWindow::showGotoLine()
     if(mdi->subWindowList().count() > 0)
     {
         bool ok = false;
-        int ret = QInputDialog::getInteger(0, "Goto Line", "Enter a line number to goto:", 1, 1,
+        int ret = QInputDialog::getInt(0, "Goto Line", "Enter a line number to goto:", 1, 1,
                                            getActiveEditor()->lines(), 10, &ok);
         if(ok)
         {

@@ -33,9 +33,12 @@
 
 TEMPLATE = lib
 TARGET = qscintilla2
-CONFIG += qt warn_off release dll thread
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+CONFIG += qt warn_off release static thread
 INCLUDEPATH = . ../include ../src
-DEFINES = QSCINTILLA_MAKE_DLL QT SCI_LEXER
+DEFINES += Q_WS_WIN QSCINTILLA_MAKE_DLL QT SCI_LEXER
+
+DESTDIR = $$PWD/lib
 
 # Handle both Qt v4 and v3.
 target.path = $$[QT_INSTALL_LIBS]
@@ -65,51 +68,7 @@ isEmpty(qsci.path) {
 INSTALLS += header trans qsci target
 
 HEADERS = \
-	./Qsci/qsciglobal.h \
-	./Qsci/qsciscintilla.h \
-	./Qsci/qsciscintillabase.h \
-	./Qsci/qsciabstractapis.h \
-	./Qsci/qsciapis.h \
-	./Qsci/qscicommand.h \
-	./Qsci/qscicommandset.h \
-	./Qsci/qscidocument.h \
-	./Qsci/qscilexer.h \
-	./Qsci/qscilexerbash.h \
-	./Qsci/qscilexerbatch.h \
-	./Qsci/qscilexercmake.h \
-	./Qsci/qscilexercpp.h \
-	./Qsci/qscilexercsharp.h \
-	./Qsci/qscilexercss.h \
-	./Qsci/qscilexercustom.h \
-	./Qsci/qscilexerd.h \
-	./Qsci/qscilexerdiff.h \
-	./Qsci/qscilexerfortran.h \
-	./Qsci/qscilexerfortran77.h \
-	./Qsci/qscilexerhtml.h \
-	./Qsci/qscilexeridl.h \
-	./Qsci/qscilexerjava.h \
-	./Qsci/qscilexerjavascript.h \
-	./Qsci/qscilexerlua.h \
-	./Qsci/qscilexermakefile.h \
-	./Qsci/qscilexerpascal.h \
-	./Qsci/qscilexerperl.h \
-	./Qsci/qscilexerpostscript.h \
-	./Qsci/qscilexerpov.h \
-	./Qsci/qscilexerproperties.h \
-	./Qsci/qscilexerpython.h \
-	./Qsci/qscilexerruby.h \
-	./Qsci/qscilexerspice.h \
-	./Qsci/qscilexersql.h \
-	./Qsci/qscilexertcl.h \
-	./Qsci/qscilexertex.h \
-	./Qsci/qscilexerverilog.h \
-	./Qsci/qscilexervhdl.h \
-	./Qsci/qscilexerxml.h \
-	./Qsci/qscilexeryaml.h \
-	./Qsci/qscimacro.h \
-	./Qsci/qsciprinter.h \
-	./Qsci/qscistyle.h \
-	./Qsci/qscistyledtext.h \
+        $$PWD/Qsci/*.h \
 	ListBoxQt.h \
 	SciClasses.h \
 	ScintillaQt.h \
@@ -207,7 +166,7 @@ SOURCES = \
 	../src/Editor.cpp \
 	../src/ExternalLexer.cpp \
 	../src/Indicator.cpp \
-    ../src/KeyMap.cpp \
+        ../src/KeyMap.cpp \
 	../src/KeyWords.cpp \
 	../src/LexAbaqus.cpp \
 	../src/LexAPDL.cpp \
@@ -290,9 +249,9 @@ SOURCES = \
 	../src/PerLine.cpp \
 	../src/PositionCache.cpp \
 	../src/PropSet.cpp \
-    ../src/RESearch.cpp \
+        ../src/RESearch.cpp \
 	../src/RunStyles.cpp \
-    ../src/ScintillaBase.cpp \
+        ../src/ScintillaBase.cpp \
 	../src/Style.cpp \
 	../src/StyleContext.cpp \
 	../src/ViewStyle.cpp \

@@ -116,7 +116,7 @@ bool QsciMacro::load(const QString &asc)
 
             cmd.text.resize(len - 1);
 
-            QByteArray ba = fields[f++].toAscii();
+            QByteArray ba = fields[f++].toLatin1();
             const char *sp = ba.data();
 
             char *dp = cmd.text.data();
